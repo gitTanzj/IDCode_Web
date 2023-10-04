@@ -6,6 +6,7 @@ const validate = require('./idcode')
 
 // use html view files
 const path = require('path')
+app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'views')))
 
 // show form data in request
@@ -13,7 +14,7 @@ const parseUrl = require("body-parser")
 let encodeUrl = parseUrl.urlencoded({extended:false})
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "index.html"))
+    res.render('index')
 })
 
 app.post("/validate", encodeUrl, (req, res) => {
