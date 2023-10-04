@@ -102,13 +102,17 @@ function isikukood(kood){
     const tempData = {
         sex : kood[0] % 2 == 0 ? "naine": "mees"
     } 
-    const ans = [
-        `Isik isikukoodiga ${kood} on ${tempData.sex},`,
-        `kes on syndinud ${kood.slice(5,7)}. ${months[kood.slice(3,5)]} ${getCentury(kood[0])}${kood.slice(1,3)}. aastal.`,
-        `Tema isikukood registreeriti ${hospitalAndQ.hospital}`,
-        `Ja sel paeval oli ta ${hospitalAndQ.queue}. ${tempData.sex}`,
-        `Isikukoodi kontrollnumbriks on ${ControlNumber(kood)}`
-    ]
+    const ans = {
+        kood: kood,
+        sex: tempData.sex,
+        päev: kood.slice(5,7),
+        kuu: months[kood.slice(3,5)],
+        sajand: getCentury(kood[0]),
+        aasta: kood.slice(1,3),
+        haigla: hospitalAndQ.hospital,
+        queue: hospitalAndQ.queue,
+        cNum: ControlNumber(kood)
+    }
     return ans
 }
 

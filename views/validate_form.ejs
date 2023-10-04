@@ -1,0 +1,15 @@
+
+<%- include('header') %>
+
+    <div class="container">
+        <h1>Hei Hopsti!</h1><br>
+        <h2>Tahaksite, et teie andmeid varastataks?</h2>
+        <h3>Sisestage enda isikukood!</h3>
+        <form action="/validate" method="POST">
+            <caption for="isikukood">Teie isikukood:</caption>
+            <input type="text" name="isikukood">
+            <input type="submit" value="Saada!">
+        </form>
+    </div>
+
+<%- include('footer') %>

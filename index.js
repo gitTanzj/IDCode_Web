@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const validate = require('./idcode')
+const ejs = require('ejs')
 
 
 // use html view files
@@ -14,12 +15,11 @@ const parseUrl = require("body-parser")
 let encodeUrl = parseUrl.urlencoded({extended:false})
 
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('validate_form')
 })
 
 app.post("/validate", encodeUrl, (req, res) => {
-    console.log(req.body)
-    res.send(validate.isikukood(req.body.isikukood))
+    res.render('validate_result', validate.isikukood(req.body.isikukood))
 })
 
 app.listen(port, () => {
