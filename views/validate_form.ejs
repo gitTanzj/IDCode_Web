@@ -1,15 +1,12 @@
 
-<%- include('header') %>
 
-    <div class="container">
+    <div class="container" style="text-align: center;">
         <h1>Hei Hopsti!</h1><br>
         <h2>Tahaksite, et teie andmeid varastataks?</h2>
         <h3>Sisestage enda isikukood!</h3>
-        <form action="/validate" method="POST">
+        <form action="/" method="POST">
             <caption for="isikukood">Teie isikukood:</caption>
             <input type="text" name="isikukood">
             <input type="submit" value="Saada!">
         </form>
     </div>
-
-<%- include('footer') %>
