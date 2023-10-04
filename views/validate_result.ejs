@@ -2,11 +2,11 @@
     <div class="container" style="text-align: center;">
         <h2>Isikukoodi valideerimis tulemus</h2>
         <p>
-        Isik isikukoodiga <%= kood %> on <%= sex %>,
-        kes on syndinud <%= päev %>. <%= kuu %> <%= sajand %><%= aasta %>. aastal.
-        Tema isikukood registreeriti <%= haigla %>
-        Ja sel paeval oli ta <%= queue %>. <%= sex %>
-        Isikukoodi kontrollnumbriks on <%= cNum %>
+        Isik isikukoodiga <%= data.kood %> on <%= data.sex %>,
+        kes on syndinud <%= data.päev %>. <%= data.kuu %> <%= data.sajand %><%= data.aasta %>. aastal.
+        Tema isikukood registreeriti <%= data.haigla %>
+        Ja sel paeval oli ta <%= data.queue %>. <%= data.sex %>
+        Isikukoodi kontrollnumbriks on <%= data.cNum %>
         </p>
         <a href="/">Valideeri uus isikukood</a>
     </div>

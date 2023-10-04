@@ -14,11 +14,27 @@ const parseUrl = require("body-parser")
 let encodeUrl = parseUrl.urlencoded({extended:false})
 
 app.get('/', (req, res) => {
-    res.render('validate_form', {data:null})
+    res.render('validate_form', {
+        data : null
+    })
 })
 
 app.post("/", encodeUrl, (req, res) => {
-    res.render('validate_result', {data:validate.isikukood(req.body.isikukood)})
+    let error = null
+    if(req.body.isikukood === null){
+        error = 'Palun sisesta vormis andmed'
+    } else if(req.body.isikukood < 11){
+        error = 'Palun sisesta korrektne isikukood'
+    }
+    if(error === null){
+        res.render('validate_result', {
+            data : validate.isikukood(req.body.isikukood),
+            error : null
+        })
+    } else{
+        res.render('validate_form', {data:null, error:error})
+    }
+    
 })
 
 app.listen(port, () => {
